@@ -1,3 +1,10 @@
 .main {
     padding: 0 30px;
+
+    &-content {
+        height: calc(100vh - 80px);
+        // overflow: hidden;
+        overflow-y: scroll;
+        padding: 10px 0;
+    }
 }

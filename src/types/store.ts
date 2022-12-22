@@ -5,6 +5,7 @@ export interface ChapterInitialState {
 	chapterVerses: ChapterVerse[]
 	status: Status
 	versesStatus: Status
+	autoPlayedAudioId: number | null
 }
 
 export interface CommonInitialState {

@@ -17,6 +17,8 @@ class Service implements IService {
 			params: {
 				language: lang,
 				words: true,
+				word_fields: 'text_uthmani, text_indopak, text_uhtimani_tajweed',
+				audio: 7,
 			},
 		})
 

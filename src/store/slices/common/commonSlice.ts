@@ -3,7 +3,7 @@ import { QueryLanguage } from '../../../types/common'
 import { CommonInitialState } from '../../../types/store'
 
 const initialState: CommonInitialState = {
-	lang: 'en',
+	lang: 'ru',
 }
 
 const commonSlice = createSlice({

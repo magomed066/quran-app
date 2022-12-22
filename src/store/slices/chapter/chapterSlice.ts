@@ -11,12 +11,17 @@ const initialState: ChapterInitialState = {
 	chapterVerses: [],
 	status: 'idle',
 	versesStatus: 'idle',
+	autoPlayedAudioId: null,
 }
 
 const chaptersSlice = createSlice({
 	name: 'chapters',
 	initialState,
-	reducers: {},
+	reducers: {
+		setAutoPlayedAudId(state, action: PayloadAction<number>) {
+			state.autoPlayedAudioId = action.payload
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(getChaptersAction.pending, (state) => {
 			state.status = 'pending'
@@ -41,5 +46,10 @@ const chaptersSlice = createSlice({
 		)
 	},
 })
+
+export const chapterActions = {
+	...chaptersSlice.actions,
+	...chapterActionCreators,
+}
 
 export default chaptersSlice.reducer

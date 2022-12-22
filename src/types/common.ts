@@ -23,6 +23,10 @@ export interface ChapterVerse {
 	page_number: number
 	juz_number: number
 	words: Word[]
+	audio: {
+		url: string
+		segments: number[]
+	}
 }
 
 export interface Word {
@@ -42,6 +46,12 @@ export interface Word {
 		text: string
 		language_name: string
 	}
+}
+
+export interface IAudio {
+	id: number
+	url: string
+	audio: HTMLAudioElement
 }
 
 export type Status = 'idle' | 'pending' | 'completed' | 'error'

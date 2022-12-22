@@ -1,7 +1,7 @@
-import { chapterActionCreators } from './chapter/actions'
+import { chapterActions } from './chapter/chapterSlice'
 import { commonActions } from './common/commonSlice'
 
 export const allActionCreators = {
-	...chapterActionCreators,
+	...chapterActions,
 	...commonActions,
 }
