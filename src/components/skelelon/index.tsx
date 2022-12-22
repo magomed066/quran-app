@@ -10,7 +10,7 @@ const LoadingSkeleton: FC<Props> = ({ rows = 3, width = 300 }) => {
 	let rowsCount: JSX.Element[] = []
 
 	for (let i = 0; i < rows; i++) {
-		rowsCount.push(<Skeleton height={35} animation="wave" />)
+		rowsCount.push(<Skeleton key={i} height={35} animation="wave" />)
 	}
 
 	return <Box style={{ padding: '0 10px', width }}>{rowsCount}</Box>

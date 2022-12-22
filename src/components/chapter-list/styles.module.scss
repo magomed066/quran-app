@@ -6,9 +6,13 @@
     overflow: hidden;
     overflow-y: scroll;
 
+
     &-item {
-        display: flex;
-        gap: 10px;
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+        }
 
         &__counter {
             width: 30px;
@@ -24,6 +28,7 @@
         &:hover {
             cursor: pointer;
             background: rgb(39, 158, 139);
+            color: #fff;
         }
     }
 }
