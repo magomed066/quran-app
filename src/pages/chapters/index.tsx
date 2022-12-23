@@ -11,7 +11,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt'
 import { AudioProvider } from '../../contexts/audio/audio-context'
 
 const Chapters = () => {
-	const { lang } = useAppSelector((store) => store.common)
+	const { lang, selectedReciterId } = useAppSelector((store) => store.common)
 	const {
 		chapters,
 		status,
@@ -25,10 +25,11 @@ const Chapters = () => {
 	let [searchParams, setSearchParams] = useSearchParams()
 	const page = searchParams.get('page') || 1
 
-	const { getVersesByChapterAction } = useActions()
+	const { getVersesByChapterAction, getRecitersAction } = useActions()
 
 	useEffect(() => {
 		getChaptersAction({ lang })
+		getRecitersAction({ lang })
 	}, [])
 
 	useEffect(() => {
@@ -38,9 +39,10 @@ const Chapters = () => {
 				lang,
 				perPage: pagination.perPage,
 				page: page ? page : 1,
+				reciterId: selectedReciterId,
 			})
 		}
-	}, [status, id, page])
+	}, [status, id, page, selectedReciterId])
 
 	return (
 		<AudioProvider>

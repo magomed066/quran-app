@@ -17,4 +17,13 @@ export interface ChapterInitialState {
 
 export interface CommonInitialState {
 	lang: QueryLanguage
+	reciters: Reciter[]
+	selectedReciterId: number
+}
+
+export interface Reciter {
+	id: number
+	reciter_name: string
+	style: string
+	translated_name: { name: string; language_name: string }
 }

@@ -1,6 +1,7 @@
 import { apiInstance } from '.'
 import { Chapter, ChapterVerse, Pagination } from '../types/common'
 import { IService } from '../types/service'
+import { Reciter } from '../types/store'
 
 class Service implements IService {
 	async getChapters(lang: string = 'en'): Promise<Chapter[]> {
@@ -14,6 +15,7 @@ class Service implements IService {
 		lang: string = 'en',
 		page: string | number,
 		perPage: number = 10,
+		reciterId: number,
 	): Promise<{
 		verses: ChapterVerse[]
 		pagination: Pagination
@@ -22,13 +24,21 @@ class Service implements IService {
 			params: {
 				language: lang,
 				words: true,
-				per_page: 10,
+				per_page: perPage,
 				page,
 				word_fields: 'text_uthmani, text_indopak, text_uhtimani_tajweed',
-				audio: 7,
+				audio: reciterId,
 				tafsirs: '168',
 			},
 		})
+
+		return data
+	}
+
+	async getReciters(lang: string = 'en'): Promise<{ recitations: Reciter[] }> {
+		const { data } = await apiInstance.get(
+			`resources/recitations?language=${lang}`,
+		)
 
 		return data
 	}

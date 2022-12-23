@@ -12,6 +12,7 @@ interface GetVerserByChapterActionData {
 	lang: QueryLanguage
 	perPage: number
 	page: number | string
+	reciterId: number
 }
 
 const getChaptersAction = createAsyncThunk<Chapter[], GetChapterActionData>(
@@ -30,11 +31,20 @@ const getVersesByChapterAction = createAsyncThunk<
 		page: number | string
 	},
 	GetVerserByChapterActionData
->('chapters/getVersesByChapter', async ({ id, lang, perPage, page }, s) => {
-	const data = await service.getVersesByChapter(id, lang, page, perPage)
+>(
+	'chapters/getVersesByChapter',
+	async ({ id, lang, perPage, page, reciterId }, s) => {
+		const data = await service.getVersesByChapter(
+			id,
+			lang,
+			page,
+			perPage,
+			reciterId,
+		)
 
-	return { ...data, page }
-})
+		return { ...data, page }
+	},
+)
 
 export const chapterActionCreators = {
 	getChaptersAction,
