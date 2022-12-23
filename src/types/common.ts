@@ -50,7 +50,6 @@ export interface Word {
 
 export interface IAudio {
 	id: number
-	url: string
 	audio: HTMLAudioElement
 }
 

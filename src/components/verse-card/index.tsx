@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { ChapterVerse } from '../../types/common'
 import styles from './index.module.scss'
@@ -8,13 +8,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import PauseIcon from '@mui/icons-material/Pause'
 import { IconButton } from '@mui/material'
+import useAudio from '../../hooks/audio'
 
 interface Props {
 	verse: ChapterVerse
-	// audios: IAudio[]
-	// setAudios: Dispatch<SetStateAction<any>>
-	// setPausedAudioId: (id: number) => void
-	// pausedAudioId: number | null
 }
 
 const VerseCard: FC<Props> = ({ verse }) => {
@@ -23,7 +20,10 @@ const VerseCard: FC<Props> = ({ verse }) => {
 		triggerOnce: true,
 	})
 
-	const [playing, setPlaying] = useState(false)
+	const { playing, playVerse } = useAudio({
+		url: verse.audio.url,
+		id: verse.id,
+	})
 
 	return (
 		<div
@@ -53,7 +53,7 @@ const VerseCard: FC<Props> = ({ verse }) => {
 			</div>
 
 			<div className={styles['verse-footer']}>
-				<IconButton onClick={() => {}}>
+				<IconButton onClick={playVerse}>
 					{playing ? <PauseIcon /> : <PlayArrowIcon />}
 				</IconButton>
 			</div>
