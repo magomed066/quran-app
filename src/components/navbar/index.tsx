@@ -4,10 +4,15 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import SettingsIcon from '@mui/icons-material/Settings'
 import styles from './index.module.scss'
 import { IconButton } from '@mui/material'
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import { ModalContext } from '../../contexts/modal/modal'
+import ClearAllIcon from '@mui/icons-material/ClearAll'
 
-const Navbar = () => {
+interface Props {
+	setActiveChapters: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Navbar: FC<Props> = ({ setActiveChapters }) => {
 	const { pathname } = useLocation()
 	const { show } = useContext(ModalContext)
 
@@ -32,6 +37,9 @@ const Navbar = () => {
 			>
 				<FavoriteIcon className={styles.icon} />
 			</NavLink>
+			<IconButton onClick={() => setActiveChapters(true)}>
+				<ClearAllIcon className={styles.icon} />
+			</IconButton>
 
 			<IconButton onClick={show} className={styles['settings-icon']}>
 				<SettingsIcon />

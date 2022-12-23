@@ -1,10 +1,10 @@
 .verse {
     background: #fff;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 1rem;
+    padding: 1.5rem;
     border: 1px solid rgba(100, 100, 111, 0.2);
     transition: transform .2s;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
     opacity: 0;
 
     &.active {
@@ -15,20 +15,20 @@
     .header {
         display: flex;
         justify-content: space-between;
-        gap: 30px;
-        line-height: 50px;
-        margin-bottom: 25px;
+        gap: 3rem;
+        line-height: 5rem;
+        margin-bottom: 2.5rem;
 
         &__text {
             width: 100%;
-            font-size: 30px;
+            font-size: 3rem;
             color: #000;
             text-align: end;
         }
 
         &__number {
             color: rgb(39, 158, 139);
-            font-size: 26px;
+            font-size: 2.6rem;
 
         }
     }
@@ -36,9 +36,9 @@
     &-tafseer {
         display: flex;
         align-items: center;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: gold;
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
         cursor: pointer;
     }
 
@@ -49,14 +49,18 @@
         &__text {
             color: #000;
             font-weight: 400;
-            font-size: 18px;
+            font-size: 1.8rem;
         }
 
-        padding-bottom: 20px;
+        padding-bottom: 2rem;
         border-bottom: 1px solid #00000025;
     }
 
     &-footer {
-        margin-top: 20px;
+        margin-top: 2rem;
+    }
+
+    .icon {
+        font-size: 2.5rem;
     }
 }

@@ -4,18 +4,28 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Chapters from '../chapters'
 import styles from './index.module.scss'
 import { ModalProvider } from '../../contexts/modal/modal'
+import { useState } from 'react'
 
 const Main = () => {
+	const [activeChapters, setActiveChapters] = useState(true)
 	return (
 		<BrowserRouter>
 			<Box>
 				<ModalProvider>
 					<Header />
 					<div className="container">
-						<Navbar />
+						<Navbar setActiveChapters={setActiveChapters} />
 						<div className={styles['main-content']}>
 							<Routes>
-								<Route path="/chapters/:id" element={<Chapters />} />
+								<Route
+									path="/chapters/:id"
+									element={
+										<Chapters
+											setActiveChapters={setActiveChapters}
+											activeChapters={activeChapters}
+										/>
+									}
+								/>
 								<Route path="/savedAyahs" element={<h2>Saved Ayahs</h2>} />
 								<Route
 									path="*"

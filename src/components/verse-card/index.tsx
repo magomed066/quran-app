@@ -54,7 +54,11 @@ const VerseCard: FC<Props> = ({ verse }) => {
 
 			<div className={styles['verse-footer']}>
 				<IconButton onClick={playVerse}>
-					{playing ? <PauseIcon /> : <PlayArrowIcon />}
+					{playing ? (
+						<PauseIcon className={styles['icon']} />
+					) : (
+						<PlayArrowIcon className={styles['icon']} />
+					)}
 				</IconButton>
 			</div>
 		</div>

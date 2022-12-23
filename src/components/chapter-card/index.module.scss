@@ -1,20 +1,21 @@
 .card {
     background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    width: 250px;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px .7rem 2.9rem 0px;
+    max-width: 25rem;
+    width: 100%;
     transition: transform .2s;
     cursor: pointer;
     position: relative;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
     opacity: 0;
     display: flex;
-    gap: 10px;
+    gap: 1rem;
 
     &__number {
-        width: 30px;
-        height: 30px;
+        width: 3rem;
+        height: 3rem;
         background: rgb(39, 158, 139);
         border-radius: 50%;
         display: flex;
@@ -27,18 +28,18 @@
         &__title {
             font-weight: 500;
             margin-bottom: 3px;
-            font-size: 18px;
+            font-size: 1.8rem;
         }
 
         &__sub {
             font-weight: 400;
-            font-size: 15px;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         &__info {
             color: #b0b0b0;
-            font-size: 14px;
+            font-size: 1.4rem;
             font-weight: 400;
         }
     }
@@ -49,8 +50,8 @@
 
     .save {
         position: absolute;
-        right: 10px;
-        top: 10px;
+        right: 1rem;
+        top: 1rem;
     }
 
     &.active {

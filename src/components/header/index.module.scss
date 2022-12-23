@@ -1,6 +1,6 @@
 .header {
-    height: 60px;
-    padding: 0 20px 0 0;
+    height: 6rem;
+    padding: 0 2rem 0 0;
     display: flex;
     align-items: center;
 
@@ -8,12 +8,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 65px;
+        width: 6.5rem;
         background: #279e8b;
         height: 100%;
 
         &__item {
-            width: 43px;
+            width: 4.3rem;
         }
     }
 
@@ -23,7 +23,7 @@
 
     .language {
         color: #279e8b;
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: 400;
     }
 }
