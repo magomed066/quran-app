@@ -1,0 +1,29 @@
+.chapters {
+    &-content {
+        padding: 30px 30px 20px 30px;
+        height: calc(100vh - 60px);
+    }
+
+    &-list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-direction: column;
+        height: calc(100vh - 90px);
+        overflow-y: scroll;
+        padding-bottom: 20px;
+    }
+
+    .verses-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: calc(100vh - 90px);
+        overflow: auto;
+        padding: 0 10px 20px 10px;
+
+        .load-more {
+            margin-left: auto;
+        }
+    }
+}

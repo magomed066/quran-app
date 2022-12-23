@@ -6,14 +6,18 @@ interface Props {
 	width?: number
 }
 
-const LoadingSkeleton: FC<Props> = ({ rows = 3, width = 300 }) => {
+const LoadingSkeleton: FC<Props> = ({ rows = 3, width }) => {
 	let rowsCount: JSX.Element[] = []
 
 	for (let i = 0; i < rows; i++) {
 		rowsCount.push(<Skeleton key={i} height={35} animation="wave" />)
 	}
 
-	return <Box style={{ padding: '0 10px', width }}>{rowsCount}</Box>
+	return (
+		<Box style={{ padding: '0 10px', width: width ? width : '100%' }}>
+			{rowsCount}
+		</Box>
+	)
 }
 
 export default LoadingSkeleton

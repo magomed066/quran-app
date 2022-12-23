@@ -2,8 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { QueryLanguage } from '../../../types/common'
 import { CommonInitialState } from '../../../types/store'
 
+const language = JSON.parse(localStorage.getItem('lang') as QueryLanguage)
+
 const initialState: CommonInitialState = {
-	lang: 'ru',
+	lang: language || 'ru',
 }
 
 const commonSlice = createSlice({
@@ -11,7 +13,9 @@ const commonSlice = createSlice({
 	initialState,
 	reducers: {
 		setLang(state, action: PayloadAction<QueryLanguage>) {
+			localStorage.clear()
 			state.lang = action.payload
+			localStorage.setItem('lang', JSON.stringify(action.payload))
 		},
 	},
 	extraReducers: (builder) => {},

@@ -54,6 +54,14 @@ export interface IAudio {
 	audio: HTMLAudioElement
 }
 
+export interface Pagination {
+	current_page: number
+	next_page: number
+	per_page: number
+	total_pages: number
+	total_records: number
+}
+
 export type Status = 'idle' | 'pending' | 'completed' | 'error'
 
 export type QueryLanguage = 'ru' | 'en'

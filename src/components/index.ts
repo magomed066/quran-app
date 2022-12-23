@@ -1,5 +1,7 @@
 import Header from './header'
-import ChapterList from './chapter-list'
-import Verse from './verse'
+import Navbar from './navbar'
+import ChapterCard from './chapter-card'
 
-export { Header, ChapterList, Verse }
+import VerseCard from './verse-card'
+
+export { Header, Navbar, ChapterCard, VerseCard }

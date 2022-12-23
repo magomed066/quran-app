@@ -1,0 +1,62 @@
+.verse {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(100, 100, 111, 0.2);
+    transition: transform .2s;
+    transform: translateX(-100px);
+    opacity: 0;
+
+    &.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        line-height: 50px;
+        margin-bottom: 25px;
+
+        &__text {
+            width: 100%;
+            font-size: 30px;
+            color: #000;
+            text-align: end;
+        }
+
+        &__number {
+            color: rgb(39, 158, 139);
+            font-size: 26px;
+
+        }
+    }
+
+    &-tafseer {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: gold;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+
+    &-description {
+        margin-right: auto;
+
+        &__text {
+            color: #000;
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        padding-bottom: 20px;
+        border-bottom: 1px solid #00000025;
+    }
+
+    &-footer {
+        margin-top: 20px;
+    }
+}

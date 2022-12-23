@@ -1,4 +1,4 @@
-import { ChapterVerse } from './../../../types/common'
+import { ChapterVerse, Pagination } from './../../../types/common'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import service from '../../../api/service'
 import { Chapter, QueryLanguage } from '../../../types/common'
@@ -10,6 +10,8 @@ interface GetChapterActionData {
 interface GetVerserByChapterActionData {
 	id: number
 	lang: QueryLanguage
+	perPage: number
+	page: number | string
 }
 
 const getChaptersAction = createAsyncThunk<Chapter[], GetChapterActionData>(
@@ -22,12 +24,16 @@ const getChaptersAction = createAsyncThunk<Chapter[], GetChapterActionData>(
 )
 
 const getVersesByChapterAction = createAsyncThunk<
-	ChapterVerse[],
+	{
+		verses: ChapterVerse[]
+		pagination: Pagination
+		page: number | string
+	},
 	GetVerserByChapterActionData
->('chapters/getVersesByChapter', async ({ id, lang }) => {
-	const data = await service.getVersesByChapter(id, lang)
+>('chapters/getVersesByChapter', async ({ id, lang, perPage, page }, s) => {
+	const data = await service.getVersesByChapter(id, lang, page, perPage)
 
-	return data
+	return { ...data, page }
 })
 
 export const chapterActionCreators = {

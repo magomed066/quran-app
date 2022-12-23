@@ -5,5 +5,12 @@
 }
 
 body {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
     background-color: #F6F7F9;
+    height: calc(100vh - 60px);
 }
